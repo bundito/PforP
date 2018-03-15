@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adcd8c45-eae6-4158-99bc-47d7a53a5590" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/kmeans.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/analysis/kmeans.py" afterPath="$PROJECT_DIR$/analysis/kmeans.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,17 +12,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/PforP$kmeans.coverage" NAME="kmeans Coverage Results" MODIFIED="1521128036172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/PforP$kmeans.coverage" NAME="kmeans Coverage Results" MODIFIED="1521145371977" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="kmeans.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/analysis/kmeans.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="96" column="9" lean-forward="false" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
+            <state relative-caret-position="287">
+              <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding>
                 <element signature="e#20#29#0" expanded="true" />
+                <marker date="1521146572738" expanded="true" signature="2674:2692" ph="INSERT INTO images... " />
+                <marker date="1521146572738" expanded="true" signature="2674:2733" ph="INSERT INTO images... " />
+                <marker date="1521146572738" expanded="true" signature="2674:2746" ph="INSERT INTO images... " />
+                <marker date="1521146572738" expanded="true" signature="2674:2747" ph="INSERT INTO images... " />
+                <marker date="1521146572738" expanded="true" signature="2674:2758" ph="INSERT INTO images... " />
               </folding>
             </state>
           </provider>
@@ -191,10 +196,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/analysis/kmeans.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="96" column="9" lean-forward="false" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
+        <state relative-caret-position="287">
+          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
           <folding>
             <element signature="e#20#29#0" expanded="true" />
+            <marker date="1521146572738" expanded="true" signature="2674:2692" ph="INSERT INTO images... " />
+            <marker date="1521146572738" expanded="true" signature="2674:2733" ph="INSERT INTO images... " />
+            <marker date="1521146572738" expanded="true" signature="2674:2746" ph="INSERT INTO images... " />
+            <marker date="1521146572738" expanded="true" signature="2674:2747" ph="INSERT INTO images... " />
+            <marker date="1521146572738" expanded="true" signature="2674:2758" ph="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
