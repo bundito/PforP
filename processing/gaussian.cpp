@@ -34,12 +34,12 @@ int main(int argc,char **argv)
 
     // Set some defaults
     //QDir baseDir;
-    QDir baseDir("/home/bundito/projects/PforP/volumesort/Official/Volume1");
+    QDir baseDir("/home/bundito/projects/PforP/volumesort/Official/Volume2");
     QString destBase = "/home/bundito/projects/PforP/Finished";
 
     baseDir.setFilter(QDir::Files | QDir::NoDotAndDotDot);
 
-    QString volNum = "1";
+    QString volNum = "2";
 
     QString destDir = destBase + "/Volume" + volNum + "/";
     QDir dDir(destDir);
@@ -48,17 +48,19 @@ int main(int argc,char **argv)
 
     createDir(destDir);
 
+    uint totalFiles = baseDir.count();
+    uint filesWorked = 1;
+
+
     QDirIterator iter(baseDir);
+
+
 
     while (iter.hasNext()) {
 
-
+        cout << "(" << filesWorked << "/" << totalFiles << ")" << endl;
 
         QString imgFile(iter.next());
-
-        if (iter.fileName() == "." || iter.fileName() == "..") {
-            iter.next();
-        }
 
         string u_fullFile;
         u_fullFile = imgFile.toUtf8().constData();
@@ -72,7 +74,7 @@ int main(int argc,char **argv)
         string u_newFile;
         u_newFile = u_destDir + u_fileName  + "_thumbnail.jpg";
 
-        cout << u_fullFile << endl;
+        //cout << u_fullFile << endl;
         cout << u_newFile << endl;
 
         // RESIZE
@@ -80,11 +82,30 @@ int main(int argc,char **argv)
         Image origImg(u_fullFile);
         Image dupImg(origImg);
 
-        dupImg.resize("128x128");
+        Geometry resizeRules;
+        resizeRules.aspect(false);
+
+        dupImg.resize("128x128!");
 
         dupImg.write(u_newFile);
 
-        // GRAB five random pixels
+        // GAUSSIAN
+
+        Image gaussImage(origImg);
+        timer.start();
+        gaussImage.gaussianBlur(128.0, 128.0);
+        qint64 gaussTime;
+        gaussTime = timer.elapsed();
+
+        cout << "Gaussian time: " << gaussTime/1000.0 << "secs" << endl;
+        timer.invalidate();
+
+        string gaussFile = u_destDir + u_fileName  + "._gaussian.jpg";
+
+        gaussImage.write(gaussFile);
+
+
+        // GRAB RANDOM PIXELS
 
         Geometry imgSize = origImg.size();
         double dblH;
@@ -100,25 +121,21 @@ int main(int argc,char **argv)
 
         int counter = 0;
 
-
-
         srand (rand());
-
 
             int rX;
             int rY;
-
 
         for(counter; counter < 5; counter++) {
 
             rX = rand() % (width - 1) + 0;
             rY = rand() % (height - 1) + 0;
 
-
-            cout << "X, Y: " << rX << ", " << rY << endl;
+            //cout << "X, Y: " << rX << ", " << rY << endl;
 
         }
 
+        filesWorked++;
 
     }
 
