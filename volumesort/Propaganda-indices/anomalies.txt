@@ -1,0 +1,62 @@
+in re-collecting this collection I found some weird doubles...
+
+these are not the same, although the names are:
+
+Vol14/Totally-New-Product-1.JPG
+Vol9/Totally-New-Product-1.JPG
+Vol14/Totally-New-Product-2.JPG
+Vol9/Totally-New-Product-2.JPG
+Vol14/Totally-New-Product-3.JPG
+Vol9/Totally-New-Product-3.JPG
+Vol14/Totally-New-Product-4.JPG                                                
+Vol9/Totally-New-Product-4.JPG
+
+all these were featured in earlier volumes, and therefor removed:
+(a little over a meg saved)
+
+Vol13.5/Dreams-Of-Leaving-3.JPG
+Vol13.5/Hans-Ponders-5.JPG
+Vol13.5/No-Ones-Laughing-1.JPG
+Vol13.5/Penguin-Sushi-1.JPG
+Vol13.5/Pop-The-Clutch-1.JPG
+Vol13.5/What-Goes-Up-3.JPG
+Vol13.5/Wrestling-Dog-1.JPG
+Goodies/Anomalic-Entrovertion-1.JPG
+Goodies/Cartoon-Cartoon-Fridays-9.JPG
+Goodies/Confuse-A-Tron-1.JPG
+Goodies/Conjoined-Country-Twins-1.JPG
+Goodies/Multiplexed-Donkey-Rhubarb-1.JPG
+Goodies/Now-Thats-Enticing-1.JPG
+Goodies/Plug-Without-A-Socket-1.JPG
+Goodies/Psycho-Milk-Monkey-5.JPG
+Goodies/Pyroclastic-Lava-Flow-1.JPG
+Goodies/Random-Bowel-Discharge-1.JPG
+Vol14/Schematic-Diagram-3.JPG
+Vol14/Schematic-Diagram-5.JPG
+Goodies/Sodium-Glucose-Jester-1.JPG
+Goodies/Sodium-Glucose-Jester-2.JPG
+Goodies/Sodium-Glucose-Jester-3.JPG
+Vol12/Something-For-Kristen-5.JPG
+Vol14/Something-For-Kristen-5.JPG
+Goodies/Symmetric-Fractal-Algorithm-1.JPG
+Goodies/The-Movement-Afoot-3.JPG
+Vol14/Nextdoor-Neighbors-1.JPG
+Vol14/The-Alias-Line-1.JPG
+Vol13.5/Sleep-Deprivation-5.JPG
+Vol13.5/The-Brothers-Gibb-1.JPG
+Vol13.5/A-Little-Exercise-1.JPG
+Goodies/All-These-Things-1.JPG
+
+these appear in Vol15, which is really Vol13 on ResExcellence, and also 
+on the Debian Special "Vol13.5", doubles removed:
+
+Vol13.5/Demonsashimi-With-Wasabe-2.JPG
+
+
+
+Vol13.5/Brotherhood-Of-The-Thumb-2.JPG
+Vol13.5/Praise-The-Blue-Steel-1.JPG
+Vol13.5/Schubert-Slowly-Lefthanded-2.JPG
+Vol13.5/The-Fall-Of-Babylon-1.JPG
+Vol13.5/Theme-Park-Disaster-1.JPG
+Vol13.5/Waterhouse-Efficiency-Curve-2.JPG

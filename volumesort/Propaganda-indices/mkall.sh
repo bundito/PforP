@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+(cd Vol1 ; perl ../mkbrowse-ira.pl Goodies/ "Volume #1: Frozen Eagle Project" Vol2/ *.JPG )
+(cd Vol2 ; perl ../mkbrowse-ira.pl Vol1/ "Volume #2: The Menudo Conspiracy" Vol3/ *.JPG )
+(cd Vol3 ; perl ../mkbrowse-ira.pl Vol2/ "Volume #3: No Sympathy for Redmond" Vol4/ *.JPG )
+(cd Vol4 ; perl ../mkbrowse-ira.pl Vol3/ "Volume #4: One Nation - One Desktop" Vol5/ *.JPG )
+(cd Vol5 ; perl ../mkbrowse-ira.pl Vol4/ "Volume #5: Follow the Leader" Vol6/ *.JPG )
+(cd Vol6 ; perl ../mkbrowse-ira.pl Vol5/ "Volume #6: Silence Means Security" Vol7/ *.JPG )
+(cd Vol7 ; perl ../mkbrowse-ira.pl Vol6/ "Volume #7: Operation Magic Bus" Vol8/ *.JPG )
+(cd Vol8 ; perl ../mkbrowse-ira.pl Vol7/ "Volume #8: 10,000,000 Penguins" Vol9/ *.JPG )
+(cd Vol9 ; perl ../mkbrowse-ira.pl Vol8/ "Volume #9: Turn on Your Funk Motor" Vol10/ *.JPG )
+(cd Vol10 ; perl ../mkbrowse-ira.pl Vol9/ "Volume #10: 1999 Redmond Invasion Tour" Vol11/ *.JPG )
+(cd Vol11 ; perl ../mkbrowse-ira.pl Vol10/ "Volume #11: The Road to Victory" Vol12/ *.JPG )
+(cd Vol12 ; perl ../mkbrowse-ira.pl Vol11/ "Volume #12: No Sympathy for Redmond 2" Vol13/ *.JPG )
+(cd Vol13 ; perl ../mkbrowse-ira.pl Vol12/ "Volume #13: Mickeysoft Employee" Vol13.5/ *.JPG )
+(cd Vol13.5 ; perl ../mkbrowse-ira.pl Vol13/ "Volume #13.5: Debian special edition" Vol14/ *.JPG )
+(cd Vol14 ; perl ../mkbrowse-ira.pl Vol13.5/ "Volume #14: Rebirth" Vol15/ *.JPG )
+(cd Vol15 ; perl ../mkbrowse-ira.pl Vol14/ "Volume #15: Mickeysoft Appreciation Day" Vol16/ *.jpg )
+(cd Vol16 ; perl ../mkbrowse-ira.pl Vol15/ "Volume #16: forgery researched" Vol17/ *.jpg )
+(cd Vol17 ; perl ../mkbrowse-ira.pl Vol16/ "Volume #17: Millenium unfolding" Propaganda-For-E/ *.JPG )
+(cd Propaganda-For-E ; perl ../mkbrowse-ira.pl Vol17/ "Propaganda for E" Goodies/ *.jpg )
+(cd Goodies ; perl ../mkbrowse-ira.pl Propaganda-For-E/ "Random Goodies" Vol1/ *.JPG )

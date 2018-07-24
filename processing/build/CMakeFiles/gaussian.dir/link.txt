@@ -1,0 +1,1 @@
+/usr/bin/g++    -rdynamic CMakeFiles/gaussian.dir/gaussian.cpp.o  -o gaussian 

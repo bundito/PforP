@@ -1,0 +1,7 @@
+/home/bundito/projects/PforP/build-processing-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/bundito/projects/PforP/build-processing-Desktop-Debug/CMakeFiles/test.dir
+/home/bundito/projects/PforP/build-processing-Desktop-Debug/CMakeFiles/gaussian.dir
+/home/bundito/projects/PforP/build-processing-Desktop-Debug/CMakeFiles/uninstall.dir
+/home/bundito/projects/PforP/build-processing-Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/bundito/projects/PforP/build-processing-Desktop-Debug/CMakeFiles/fetch-translations.dir
+/home/bundito/projects/PforP/build-processing-Desktop-Debug/CMakeFiles/gaussian_autogen.dir
