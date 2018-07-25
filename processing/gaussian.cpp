@@ -32,113 +32,125 @@ int main(int argc,char **argv)
 
     QElapsedTimer timer;
 
-    // Set some defaults
-    //QDir baseDir;
-    QDir baseDir("/home/bundito/projects/PforP/volumesort/Official/Volume2");
-    QString destBase = "/home/bundito/projects/PforP/Finished";
+    int volCounter = 2;
 
-    baseDir.setFilter(QDir::Files | QDir::NoDotAndDotDot);
+    for (volCounter = 2; volCounter <= 14; volCounter++) {
 
-    QString volNum = "2";
+        cout << volCounter << endl;
 
-    QString destDir = destBase + "/Volume" + volNum + "/";
-    QDir dDir(destDir);
+        // Set some defaults
+        //QDir baseDir;
+        QDir baseDir;
+        QString builtDir = QString("/home/bundito/PforP/volumesort/Official/Volume%1").arg(volCounter);
+        baseDir = builtDir;
+        QString destBase = "/home/bundito/PforP/Finished";
 
-    string u_destDir = destDir.toUtf8().constData();
+        cout << "Test" << "test 2";
 
-    createDir(destDir);
+        cout << "baseDir: " << endl;
 
-    uint totalFiles = baseDir.count();
-    uint filesWorked = 1;
+        baseDir.setFilter(QDir::Files | QDir::NoDotAndDotDot);
 
+        QString volNum = QString("%1").arg(volCounter);
 
-    QDirIterator iter(baseDir);
+        QString destDir = destBase + "/Volume" + volNum + "/";
+        QDir dDir(destDir);
 
+        string u_destDir = destDir.toUtf8().constData();
 
+        createDir(destDir);
 
-    while (iter.hasNext()) {
-
-        cout << "(" << filesWorked << "/" << totalFiles << ")" << endl;
-
-        QString imgFile(iter.next());
-
-        string u_fullFile;
-        u_fullFile = imgFile.toUtf8().constData();
-
-        string u_fileName;
-        u_fileName = iter.fileName().toUtf8().constData();
-
-        string u_origDir;
-        u_origDir = imgFile.toUtf8().constData();
-
-        string u_newFile;
-        u_newFile = u_destDir + u_fileName  + "_thumbnail.jpg";
-
-        //cout << u_fullFile << endl;
-        cout << u_newFile << endl;
-
-        // RESIZE
-
-        Image origImg(u_fullFile);
-        Image dupImg(origImg);
-
-        Geometry resizeRules;
-        resizeRules.aspect(false);
-
-        dupImg.resize("128x128!");
-
-        dupImg.write(u_newFile);
-
-        // GAUSSIAN
-
-        Image gaussImage(origImg);
-        timer.start();
-        gaussImage.gaussianBlur(128.0, 128.0);
-        qint64 gaussTime;
-        gaussTime = timer.elapsed();
-
-        cout << "Gaussian time: " << gaussTime/1000.0 << "secs" << endl;
-        timer.invalidate();
-
-        string gaussFile = u_destDir + u_fileName  + "._gaussian.jpg";
-
-        gaussImage.write(gaussFile);
+        uint totalFiles = baseDir.count();
+        uint filesWorked = 1;
 
 
-        // GRAB RANDOM PIXELS
+        QDirIterator iter(baseDir);
 
-        Geometry imgSize = origImg.size();
-        double dblH;
-        double dblW;
 
-        dblH = imgSize.height();
-        dblW = imgSize.width();
 
-        int height = static_cast<int>(dblH);
-        int width = static_cast<int>(dblW);
+        while (iter.hasNext()) {
 
-        //cout << "X, Y: " << dblW << ", " << dblH << endl;
+            cout << "(" << filesWorked << "/" << totalFiles << ")" << endl;
 
-        int counter = 0;
+            QString imgFile(iter.next());
 
-        srand (rand());
+            string u_fullFile;
+            u_fullFile = imgFile.toUtf8().constData();
 
-            int rX;
-            int rY;
+            string u_fileName;
+            u_fileName = iter.fileName().toUtf8().constData();
 
-        for(counter; counter < 5; counter++) {
+            string u_origDir;
+            u_origDir = imgFile.toUtf8().constData();
 
-            rX = rand() % (width - 1) + 0;
-            rY = rand() % (height - 1) + 0;
+            string u_newFile;
+            u_newFile = u_destDir + u_fileName  + "_thumbnail.jpg";
 
-            //cout << "X, Y: " << rX << ", " << rY << endl;
+            //cout << u_fullFile << endl;
+            cout << u_newFile << endl;
+
+            // RESIZE
+
+            Image origImg(u_fullFile);
+            Image dupImg(origImg);
+
+            Geometry resizeRules;
+            resizeRules.aspect(false);
+
+            dupImg.resize("128x128!");
+
+            dupImg.write(u_newFile);
+
+            // GAUSSIAN
+
+            Image gaussImage(origImg);
+            timer.start();
+            gaussImage.gaussianBlur(128.0, 128.0);
+            qint64 gaussTime;
+            gaussTime = timer.elapsed();
+
+            cout << "Gaussian time: " << gaussTime/1000.0 << "secs" << endl;
+            timer.invalidate();
+
+            string gaussFile = u_destDir + u_fileName  + "._gaussian.jpg";
+
+            gaussImage.write(gaussFile);
+
+
+            // GRAB RANDOM PIXELS
+
+            Geometry imgSize = origImg.size();
+            double dblH;
+            double dblW;
+
+            dblH = imgSize.height();
+            dblW = imgSize.width();
+
+            int height = static_cast<int>(dblH);
+            int width = static_cast<int>(dblW);
+
+            //cout << "X, Y: " << dblW << ", " << dblH << endl;
+
+            int counter = 0;
+
+            srand (rand());
+
+                int rX;
+                int rY;
+
+            for(counter; counter < 5; counter++) {
+
+                rX = rand() % (width - 1) + 0;
+                rY = rand() % (height - 1) + 0;
+
+                //cout << "X, Y: " << rX << ", " << rY << endl;
+
+            }
+
+            filesWorked++;
 
         }
-
-        filesWorked++;
-
     }
-
 }
 
 
