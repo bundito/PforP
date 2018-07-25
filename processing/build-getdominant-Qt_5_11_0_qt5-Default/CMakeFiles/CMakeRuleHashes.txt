@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+c7d8e1fcc44d634f9ec5f567b48e71cc CMakeFiles/fetch-translations
+5feab8abfc636627a9919f2b9790d2f9 CMakeFiles/getdominant_autogen
+b93d14de73113a0568c67dc096e32b53 CMakeFiles/uninstall
+5a250ad638773a9b67fdc3b671179d56 releaseme
