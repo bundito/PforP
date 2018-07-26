@@ -32,20 +32,18 @@ int main(int argc,char **argv)
 
     QElapsedTimer timer;
 
-    int volCounter = 2;
+    int volCounter = 0;
 
-    for (volCounter = 2; volCounter <= 14; volCounter++) {
+    for (volCounter = 0; volCounter <= 14; volCounter++) {
 
         cout << volCounter << endl;
 
         // Set some defaults
         //QDir baseDir;
         QDir baseDir;
-        QString builtDir = QString("/home/bundito/PforP/volumesort/Official/Volume%1").arg(volCounter);
+        QString builtDir = QString("/home/bundito/projects/PforP/volumesort/Official/Volume%1").arg(volCounter);
         baseDir = builtDir;
-        QString destBase = "/home/bundito/PforP/Finished";
-
-        cout << "Test" << "test 2";
+        QString destBase = "/home/bundito/projects/PforP/Finished";
 
         cout << "baseDir: " << endl;
 
@@ -97,13 +95,13 @@ int main(int argc,char **argv)
             Geometry resizeRules;
             resizeRules.aspect(false);
 
-            dupImg.resize("128x128!");
+            dupImg.resize("64x64");
 
             dupImg.write(u_newFile);
 
             // GAUSSIAN
 
-            Image gaussImage(origImg);
+/*            Image gaussImage(origImg);
             timer.start();
             gaussImage.gaussianBlur(128.0, 128.0);
             qint64 gaussTime;
@@ -146,7 +144,7 @@ int main(int argc,char **argv)
                 //cout << "X, Y: " << rX << ", " << rY << endl;
 
             }
-
+*/
             filesWorked++;
 
         }

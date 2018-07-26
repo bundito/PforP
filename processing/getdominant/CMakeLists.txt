@@ -29,6 +29,7 @@ find_package(ImageMagick COMPONENTS Magick++)
 find_package(
     Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
         Core
+        Gui
         Sql
 )
 
@@ -39,6 +40,7 @@ add_executable(getdominant getdominant.cpp)
 target_link_libraries(
    getdominant
         Qt5::Core
+        Qt5::Gui
 )
 
 

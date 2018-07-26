@@ -4,6 +4,7 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QElapsedTimer>
+#include <QColor>
 
 #include <stdio.h>
 #include <iostream>
@@ -23,7 +24,94 @@ void createDir (QString dir) {
 
 }
 
+// RGB to HSV utility class (thanks internet!)
 
+class RGB
+{
+public:
+    unsigned char R;
+    unsigned char G;
+    unsigned char B;
+
+    RGB(unsigned char r, unsigned char g, unsigned char b)
+    {
+        R = r;
+        G = g;
+        B = b;
+    }
+
+    bool Equals(RGB rgb)
+    {
+        return (R == rgb.R) && (G == rgb.G) && (B == rgb.B);
+    }
+};
+
+class HSV
+{
+public:
+    double H;
+    double S;
+    double V;
+
+    HSV(double h, double s, double v)
+    {
+        H = h;
+        S = s;
+        V = v;
+    }
+
+    bool Equals(HSV hsv)
+    {
+        return (H == hsv.H) && (S == hsv.S) && (V == hsv.V);
+    }
+};
+
+static double Min(double a, double b) {
+    return a <= b ? a : b;
+}
+
+static double Max(double a, double b) {
+    return a >= b ? a : b;
+}
+
+static HSV RGBToHSV(RGB rgb) {
+    double delta, min;
+    double h = 0, s, v;
+
+    min = Min(Min(rgb.R, rgb.G), rgb.B);
+    v = Max(Max(rgb.R, rgb.G), rgb.B);
+    delta = v - min;
+
+    if (v == 0.0)
+        s = 0;
+    else
+        s = delta / v;
+
+    if (s == 0)
+        h = 0.0;
+
+    else
+    {
+        if (rgb.R == v)
+            h = (rgb.G - rgb.B) / delta;
+        else if (rgb.G == v)
+            h = 2 + (rgb.B - rgb.R) / delta;
+        else if (rgb.B == v)
+            h = 4 + (rgb.R - rgb.G) / delta;
+
+        h *= 60;
+
+        if (h < 0.0)
+            h = h + 360;
+    }
+
+    return HSV(h, s, (v / 255));
+}
+
+// END of RGB and HSV classes
+
+
+// START YER ENGINES
 int main(int argc,char **argv)
 {
 
@@ -67,7 +155,10 @@ int main(int argc,char **argv)
 
 
 
+
         while (iter.hasNext()) {
+
+
 
             cout << "(" << filesWorked << "/" << totalFiles << ")" << endl;
 
@@ -82,17 +173,16 @@ int main(int argc,char **argv)
             string u_origDir;
             u_origDir = imgFile.toUtf8().constData();
 
-            string u_newFile;
-            u_newFile = u_destDir + u_fileName  + "_thumbnail.jpg";
-
-            //cout << u_fullFile << endl;
             cout << u_fullFile << endl;
+
+            Image origImg(u_fullFile);
+
+            Pixels view(origImg);
 
 
             // GRAB RANDOM PIXELS
 
-            Image origImg(u_fullFile);
-            long colors = origImg.totalColors();
+            size_t colors = origImg.totalColors();
 
             cout << colors << " colors" << endl;
 
@@ -100,7 +190,6 @@ int main(int argc,char **argv)
             double dblH = imgSize.height();
             double dblW = imgSize.width();
 
-            //cout << dblH << "x" << dblW;
 
             int height = static_cast<int>(dblH);
             int width = static_cast<int>(dblW);
@@ -118,28 +207,31 @@ int main(int argc,char **argv)
                 double totalG = 0.0;
                 double totalB = 0.0;
 
-            for(counter; counter < 5; counter++) {
+            for(counter; counter < 20; counter++) {
 
                 rX = rand() % (width - 1) + 0;
                 rY = rand() % (height - 1) + 0;
 
                 ColorRGB px = origImg.pixelColor(rX, rY);
 
-                std::cout << "Pixel " << rX << "," << rY << " R: " << px.red() << " G: " << px.green() <<
-                                            " B: " << px.blue() << std::endl;
-
-                totalR += px.red();
-                totalG += px.green();
-                totalB += px.blue();
-
-
-               // cout << "X, Y: " << rX << ", " << rY << endl;
+                totalR += (px.red() * 255.0);
+                totalG += (px.green() * 255.0);
+                totalB += (px.blue() * 255.0);
 
             }
 
-            cout << "Avg... R:" << (totalR/5.0) *100 << " G: " << (totalG/5.0) * 100 << " B: " << (totalB/5.0) * 100 << endl;
+            double avgR = (totalR/20.0);
+            double avgB = (totalB/20.0);
+            double avgG = (totalG/20.0);
 
-            filesWorked++;
+            cout << "RGB: " << avgR <<"-" << avgG << "-" << avgB << endl;
+
+            // MATHIFY SOME HSV FROM RGB
+
+            RGB data = RGB(avgR, avgG, avgB);
+            HSV value = RGBToHSV(data);
+
+            cout << "H " << value.H << "S " << value.S << "V " << value.V << endl;
 
         }
     }

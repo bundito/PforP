@@ -1,3 +1,0 @@
-/home/bundito/projects/PforP/processing/build/CMakeFiles/rebuild_cache.dir
-/home/bundito/projects/PforP/processing/build/CMakeFiles/gaussian.dir
-/home/bundito/projects/PforP/processing/build/CMakeFiles/edit_cache.dir
