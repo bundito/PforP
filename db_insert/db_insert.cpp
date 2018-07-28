@@ -141,6 +141,8 @@ int main(int argc,char **argv)
         exit(1);
     }
 
+    int imageCounter = 1;
+
     int volCounter = 0;
 
     for (volCounter = 0; volCounter <= 14; volCounter++) {
@@ -285,12 +287,13 @@ int main(int argc,char **argv)
        QSqlQuery sql(db);
    
        sql.prepare(QString("INSERT INTO image_data \
-                      ( img_name, vol_id, img_h, img_s, img_v, img_hex, num_colors ) \
-                      VALUES (:img_name, :vol_id, :img_h, :img_s, :img_v, :img_hex, :num_colors) \
+                      ( img_id, img_name, vol_id, img_h, img_s, img_v, img_hex, num_colors ) \
+                      VALUES (:img_id, :img_name, :vol_id, :img_h, :img_s, :img_v, :img_hex, :num_colors) \
                       "));
    
        QVariant colorCount = static_cast<int>(colors);
 
+       sql.bindValue((":img_id"), imageCounter);
        sql.bindValue(QString(":img_name"), m_filename);
        sql.bindValue(QString(":vol_id"), volCounter);
        sql.bindValue(QString(":img_h"), value.H);
@@ -312,10 +315,14 @@ int main(int argc,char **argv)
 
        //cout << builtDir.toLocal8Bit().constData() << endl;
 
-       QString baseImg = builtDir.append("/");
+       QString baseImg = QString("/home/bundito/projects/PforP/volumesort/Official/Volume%1").arg(volNum);
+       baseImg.append("/");
        baseImg.append(m_filename);
 
-       QString thumbImg = baseImg.append("_thumbnail.jpg");
+       QString thumbImg = QString("/home/bundito/projects/PforP/Finished/Volume%1").arg(volNum);
+       thumbImg.append("/");
+       thumbImg.append(m_filename);
+       thumbImg.append("_thumbnail.jpg");
 
        QFile baseFile(baseImg);
        if (!baseFile.open(QIODevice::ReadOnly)) {
@@ -329,11 +336,40 @@ int main(int argc,char **argv)
 
        QFile thumbFile(thumbImg);
        if (!thumbFile.open(QIODevice::ReadOnly)) {
+               cout << thumbImg.toLocal8Bit().constData() << endl;
+
                cout << "Open thumbnail image failed." << endl;
+               cout << thumbFile.errorString().toLocal8Bit().constData() << endl;
                exit(1);
         }
 
        QByteArray thumbData = thumbFile.readAll();
+       //thumbData = thumbFile.readAll();
+
+
+       sql.prepare(QString("INSERT INTO images \
+                      ( img_id, img_name, img_full, img_thumb ) \
+                      VALUES (:img_id, :img_name, :img_full, :img_thumb) \
+                      "));
+
+       sql.bindValue((":img_id"), imageCounter);
+       sql.bindValue(QString(":img_name"), m_filename);
+       sql.bindValue((":img_full"), baseData);
+       sql.bindValue((":img_thumb"), thumbData);
+
+
+       insert = sql.exec();
+       if (!insert) {
+           string err = sql.lastError().text().toLocal8Bit().constData();
+
+           cout << "Insert failed: " << err << endl;
+
+           exit(1);
+       }
+
+       db.commit();
+
+       imageCounter++;
 
        filesWorked++;
       }
