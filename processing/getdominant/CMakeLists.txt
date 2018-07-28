@@ -41,6 +41,7 @@ target_link_libraries(
    getdominant
         Qt5::Core
         Qt5::Gui
+        Qt5::Sql
 )
 
 

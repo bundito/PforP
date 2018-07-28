@@ -153,12 +153,7 @@ int main(int argc,char **argv)
 
         QDirIterator iter(baseDir);
 
-
-
-
         while (iter.hasNext()) {
-
-
 
             cout << "(" << filesWorked << "/" << totalFiles << ")" << endl;
 
@@ -234,6 +229,13 @@ int main(int argc,char **argv)
             cout << "H " << value.H << "S " << value.S << "V " << value.V << endl;
 
         }
+
+        // DATABASE INSERTION TIME!
+
+
+
+
+
     }
 }
 
