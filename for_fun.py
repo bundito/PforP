@@ -15,6 +15,8 @@ image = cv2.imread("gaussian.jpg")
 px = image[50,75]
 print(px)
 
+
+
 """
 try:
     conn = sqlite3.connect('./pforp.db')
