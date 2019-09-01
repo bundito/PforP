@@ -16,15 +16,18 @@ def list_dirs(path):
         family = img[-2:]
         return family """
 
-def gaussify_img(img):
+# def gaussify_img(img):
 
-        blur = cv2.GaussianBlur(img,(5,5),0)
+#         gray = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+#         blur = cv2.GaussianBlur(gray, (5,5), 0)
 
-        plt.subplot(121),plt.imshow(img),plt.title('Original')
-        plt.xticks([]), plt.yticks([])
-        plt.subplot(122),plt.imshow(img),plt.title('Blurred')
-        plt.xticks([]), plt.yticks([])
-        plt.show()
+#         canny = cv2.Canny(blur, 50, 150)
+      
+#         plt.subplot(121),plt.imshow(img),plt.title('Original')
+#         plt.xticks([]), plt.yticks([])
+#         plt.subplot(122),plt.imshow(canny),plt.title('Blurred')
+#         plt.xticks([]), plt.yticks([])
+#         plt.show()
 
 
 
@@ -33,20 +36,17 @@ def gaussify_img(img):
 # LEVEL THE FIRST -- DIRECTORIES OF IMAGE
 
 
-
-# for work_dir in dir_list:
-#         print(work_dir)
-
-work_dir = "Propaganda-JPEGs/Vol1"
-work_files = os.listdir(work_dir)
-
-for process_file in work_files:
-        """ family = get_family(process_file)
-        print(family)
- """
-        print(process_file)
-
-        gaussed_file = gaussify_img(process_file)
+# read image
+src = cv2.imread('Propaganda-JPEGs/Vol1/Add-N-To-X-1.JPG', cv2.IMREAD_UNCHANGED)
+ 
+# apply guassian blur on src image
+dst = cv2.GaussianBlur(src,(9063,9063),cv2.BORDER_DEFAULT)
+ 
+# display input and output image
+cv2.imshow("Gaussian Smoothing",np.hstack((src, dst)))
+cv2.waitKey(0) # waits until a key is pressed
+cv2.destroyAllWindows() # destroys the window showing image
+       
 
 
 
