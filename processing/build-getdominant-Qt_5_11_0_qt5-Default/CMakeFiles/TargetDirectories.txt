@@ -1,7 +1,0 @@
-/home/bundito/projects/PforP/processing/build-getdominant-Qt_5_11_0_qt5-Default/CMakeFiles/edit_cache.dir
-/home/bundito/projects/PforP/processing/build-getdominant-Qt_5_11_0_qt5-Default/CMakeFiles/test.dir
-/home/bundito/projects/PforP/processing/build-getdominant-Qt_5_11_0_qt5-Default/CMakeFiles/db_insert.dir
-/home/bundito/projects/PforP/processing/build-getdominant-Qt_5_11_0_qt5-Default/CMakeFiles/uninstall.dir
-/home/bundito/projects/PforP/processing/build-getdominant-Qt_5_11_0_qt5-Default/CMakeFiles/rebuild_cache.dir
-/home/bundito/projects/PforP/processing/build-getdominant-Qt_5_11_0_qt5-Default/CMakeFiles/fetch-translations.dir
-/home/bundito/projects/PforP/processing/build-getdominant-Qt_5_11_0_qt5-Default/CMakeFiles/db_insert_autogen.dir
