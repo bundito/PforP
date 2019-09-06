@@ -38,28 +38,16 @@ def get_colors(file):
 
 
 
-gauss_thumb_dir = "Thumbs_Gauss"
+gauss_thumb_dir = "ThumbsGauss"
 
 # TOP_LEVEL LOOP (Volume Dirs)
 
 i = 0
-while i <= 15:
+while i <= 11:
     extract_dir = gauss_thumb_dir + "/Volume" + str(i)
-    print(extract_dir)
-
+   
     extract_files = os.listdir(extract_dir)
 
     # ONE YOU LOCK THE TARGET
     # send gaussians off for pixel averageing
-
-    gauss_color = ""
-    for process_file in extract_files:
-        if process_file != "gaussian":
-            next
-        else:
-            gauss_color = get_colors(process_file)
-
-        print(process_file)
-        print(gauss_color)
-
     i += 1
